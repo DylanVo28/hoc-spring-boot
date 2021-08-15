@@ -14,9 +14,22 @@ public class Demo2Application {
 //		Coach theCoach=new TrackCoach();
 //		System.out.println(theCoach.getDailyWorkout());
 	
-		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+//		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+//		Coach theCoach=context.getBean("myCoach",Coach.class);
+//		System.out.println(theCoach.getDailyFortune());
+//		context.close();
+//		System.out.println("------------------------");
+//		CricketCoach theCoach=context.getBean("myCricketCoach",CricketCoach.class);
+//		System.out.println(theCoach.getDailyFortune());
+//		System.out.println(theCoach.getDailyWorkout());
+//		System.out.println(theCoach.getFortuneService());
+		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("beanScope-applicationContext.xml");
 		Coach theCoach=context.getBean("myCoach",Coach.class);
-		System.out.println(theCoach.getDailyWorkout());
+		Coach alphaCoach=context.getBean("myCoach",Coach.class);
+		boolean result=(theCoach==alphaCoach);
+		System.out.println(result);
+		System.out.println(theCoach);
+		System.out.println(alphaCoach);
 		context.close();
 	}
 
